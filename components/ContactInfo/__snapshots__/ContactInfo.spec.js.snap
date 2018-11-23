@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COMPONENT -> ContactInfo - snapshot... expect to render correct properties 1`] = `
+<wrapper__Wrapper>
+  <a
+    href="mailto:email@example.org"
+  >
+    email@example.org
+  </a>
+</wrapper__Wrapper>
+`;

@@ -1,0 +1,9 @@
+const constants = {
+  INCREMENT_TREES: 'INCREMENT_TREES',
+  DECREMENT_TREES: 'DECREMENT_TREES',
+  FETCH_VALUE: 'FETCH_VALUE',
+  FETCH_ABOUT: 'FETCH_ABOUT',
+  TOGGLE_IN: 'TOGGLE_IN'
+}
+
+export default constants

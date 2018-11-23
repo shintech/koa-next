@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COMPONENT -> Footer - snapshot... expect to render correct properties 1`] = `
+<wrapper__Wrapper>
+  <a
+    href="#"
+  >
+    © 
+    <span>
+      message
+    </span>
+  </a>
+</wrapper__Wrapper>
+`;

@@ -1,0 +1,69 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        "next/babel"
+      ],
+      "plugins": [
+        [
+          "module-resolver",
+          {
+            "root": ["./"],
+            "alias": {
+              "api": "./api",
+              "components": "./components",
+              "layouts": "./layouts",
+              "state": "./state",
+              "static": "./static"
+            }
+          }
+        ],
+        ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ],
+        ["inline-react-svg"]
+      ]
+    },
+
+    "test": {
+      "presets": ["env", "react"],
+      "plugins": [
+                [
+          "module-resolver",
+          {
+            "root": ["./"],
+            "alias": {
+              "api": "./api",
+              "components": "./components",
+              "layouts": "./layouts",
+              "state": "./state",
+              "static": "./static"
+            }
+          }
+        ],
+        ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ]
+      ]
+    },
+
+    "production": {
+      "presets": [
+        "next/babel"
+      ],
+      "plugins": [
+                [
+          "module-resolver",
+          {
+            "root": ["./"],
+            "alias": {
+              "api": "./api",
+              "components": "./components",
+              "layouts": "./layouts",
+              "state": "./state",
+              "static": "./static"
+            }
+          }
+        ],
+        ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ],
+        ["inline-react-svg"]
+      ]
+    }
+  }
+}

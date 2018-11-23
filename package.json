@@ -1,0 +1,71 @@
+{
+  "name": "koa-next",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.3",
+    "faker": "^4.1.0",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-compress": "^3.0.0",
+    "koa-router": "^7.4.0",
+    "next": "latest",
+    "next-page-transitions": "^1.0.0-alpha.4",
+    "next-redux-wrapper": "^2.0.0",
+    "next-routes": "^1.4.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "~5.0.5",
+    "redux": "~3.7.2",
+    "redux-thunk": "~2.2.0",
+    "shintech-logger": "^0.0.1",
+    "styled-components": "^3.4.9",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-inline-react-svg": "^1.0.1",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-styled-components": "^1.5.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "deep-freeze": "^0.0.1",
+    "dotenv-webpack": "^1.5.7",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "enzyme-to-json": "^3.3.4",
+    "eslint": "^5.6.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.6.0",
+    "nock": "^10.0.0",
+    "remote-redux-devtools": "^0.5.13",
+    "sinon": "^7.1.1",
+    "supertest": "^3.3.0"
+  },
+  "scripts": {
+    "test:all": "jest --verbose -c config/jest/jest.config.js",
+    "test:server": "jest --verbose -c config/jest/jest.config.server.js",
+    "test:react": "jest --verbose -c config/jest/jest.config.react.js",
+    "build": "next build",
+    "build:watch:server": "babel ./server -d dist --watch",
+    "start": "node .",
+    "dev": "nodemon .",
+    "begin": "npm run build && npm start",
+    "lint": "eslint . --fix"
+  },
+  "standard": {
+    "globals": [
+      "React",
+      "_server",
+      "_treesMock"
+    ]
+  }
+}

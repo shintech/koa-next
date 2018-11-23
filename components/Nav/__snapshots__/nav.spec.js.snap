@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COMPONENT -> Nav - snapshot... expect to render correct properties 1`] = `
+<wrapper__Wrapper
+  id="container"
+  theme={
+    Object {
+      "active": "teal",
+      "activeHover": "steelblue",
+      "activeHoverText": "black",
+      "activeSVG": "black",
+      "activeText": "darkslategrey",
+      "background": "DarkMagenta",
+      "hover": "violet",
+      "hoverText": "black",
+      "svg": "gold",
+      "tagBackground": "DarkMagenta",
+      "text": "gainsboro",
+    }
+  }
+>
+  <withRouter(ActiveLink)
+    activeClassName="active"
+    key="home"
+    prefetch={true}
+    route="/"
+  >
+    <a>
+      home
+    </a>
+  </withRouter(ActiveLink)>
+  <withRouter(ActiveLink)
+    activeClassName="active"
+    key="about"
+    prefetch={true}
+    route="/about"
+  >
+    <a>
+      about
+    </a>
+  </withRouter(ActiveLink)>
+  <withRouter(ActiveLink)
+    activeClassName="active"
+    key="contact"
+    prefetch={true}
+    route="/contact"
+  >
+    <a>
+      contact
+    </a>
+  </withRouter(ActiveLink)>
+  <Component
+    className="logo"
+  />
+  <a
+    className="icon"
+    href="javascript:void(0);"
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-bars"
+    />
+  </a>
+</wrapper__Wrapper>
+`;

@@ -1,0 +1,13 @@
+version: '3'
+
+services: 
+  express-next:
+    build: .
+    container_name: express-next
+    volumes:
+      - ./data/log/express-next:/shintech/log
+    env_file:
+      - ./config/env/.env
+    ports:
+      - "8000:8000"
+    restart: always

@@ -1,15 +1,15 @@
-const Koa = require('koa')
+const { createServer } = require('http')
 const nextRoutes = require('./routes')
-
-const app = new Koa()
+const { parse } = require('url')
 
 const dev = process.env['NODE_ENV'] !== 'production'
 const next = require('next')({ dev })
 const handle = nextRoutes.getRequestHandler(next)
 
-app.use(async ctx => {
-  await handle(ctx.req, ctx.res)
-  ctx.respond = false
+const app = createServer((req, res) => {
+  const parsedUrl = parse(req.url, true)
+
+  handle(req, res, parsedUrl)
 })
 
 module.exports = {

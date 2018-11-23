@@ -20,13 +20,13 @@ next.prepare()
     const { port, host } = config
     const logger = createLogger(config)
 
+    const listening = (app, port) => logger.info(`${app} -> listening on port ${port}...`)
+    const handleError = (err) => logger.error(err.message)
+
     logger.info(`initializing -> ${pkg.name} - version: ${pkg.version}...`)
     logger.info(`config: ${JSON.stringify({ port, environment })}...`)
 
     const server = createServer({ ...config, logger })
-
-    const listening = (app, port) => logger.info(`${app} -> listening on port ${port}...`)
-    const handleError = (err) => logger.error(err.message)
 
     server.listen(port + 1, host)
       .on('listening', () => {

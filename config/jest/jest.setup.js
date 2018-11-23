@@ -9,7 +9,7 @@ configure({ adapter: new Adapter() })
 
 const environment = 'test'
 
-const config = { environment }
+const config = { environment, api }
 
 global.process.env = {
   NODE_ENV: environment,

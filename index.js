@@ -1,10 +1,8 @@
-const nextjs = require('next')
 const path = require('path')
-const nextRoutes = require('./routes')
-const Router = require('koa-router')
-const api = require('./server/router')
 const createServer = require('./server')
 const createLogger = require('shintech-logger')
+const { next, app } = require('./app')
+const api = require('./server/router')
 const pkg = require('./package.json')
 
 require('dotenv').config({
@@ -15,47 +13,29 @@ require('dotenv').config({
 const port = parseInt(process.env['PORT']) || 8000
 const environment = process.env['NODE_ENV'] || 'development'
 
-const config = { port, environment }
+const config = { port, environment, api }
 
-const dev = process.env['NODE_ENV'] !== 'production'
-const app = nextjs({ dev })
-const handle = nextRoutes.getRequestHandler(app)
-
-app.prepare()
+next.prepare()
   .then(() => {
     const { port, host } = config
     const logger = createLogger(config)
 
+    logger.info(`initializing -> ${pkg.name} - version: ${pkg.version}...`)
+    logger.info(`config: ${JSON.stringify({ port, environment })}...`)
+
     const server = createServer({ ...config, logger })
 
-    server.use(api.routes())
-    server.use(api.allowedMethods())
+    const listening = (app, port) => logger.info(`${app} -> listening on port ${port}...`)
+    const handleError = (err) => logger.error(err.message)
 
-    const router = new Router()
-
-    router.get('*', async ctx => {
-      await handle(ctx.req, ctx.res)
-      ctx.respond = false
-    })
-
-    server.use(router.routes())
-    server.use(router.allowedMethods())
-
-    server.use(ctx => {
-      ctx.body = {
-        status: 'error'
-      }
-
-      ctx.status = 404
-    })
-
-    server.listen(port, host)
+    server.listen(port + 1, host)
       .on('listening', () => {
-        logger.info(`loading environment -> ${process.env['NODE_ENV']}...`)
-        logger.info(`${pkg.name} - version: ${pkg.version} - listening on port ${port}...`)
+        listening('server', port + 1)
+
+        app.listen(port)
+          .on('listening', () => listening('app', port))
+          .on('error', err => handleError(err))
       })
 
-      .on('error', err => {
-        logger.error(err.message)
-      })
+      .on('error', err => handleError(err))
   })

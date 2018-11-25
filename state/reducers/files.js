@@ -9,7 +9,7 @@ const initialState = {
 const files = (state = initialState, action) => {
   switch (action.type) {
     case C.FILE_LIST_SUCCESS:
-      return { ...state, nowPlaying: action.payload[0], list: action.payload, loaded: true }
+      return { ...state, list: action.payload, loaded: true }
 
     case C.SELECT_NOW_PLAYING: 
         return { ...state, nowPlaying: action.payload, loaded: true }

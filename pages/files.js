@@ -8,6 +8,16 @@ import actions from 'state/actions/files'
 import filesAPI from 'api/files'
 
 class Files extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.props.files.nowPlaying = null
+  }
+  
+  componentWillReceiveProps () {
+    this.props.files.nowPlaying = null
+  }
+  
   static async getInitialProps ({ store }) {
     try {
       let files = await filesAPI.list()
@@ -26,12 +36,12 @@ class Files extends React.Component {
   }
 
   render () {
-    const { title, files, selectNowPlaying } = this.props
+    const { files, selectNowPlaying } = this.props
     
     return (
       <Main title='files' host='shintech.ninja' favicon='/static/images/react.svg'>
         <FileList files={files} selectNowPlaying={selectNowPlaying} />
-        <Audio media={files.nowPlaying} />
+        {(files.nowPlaying) ? <Audio media={files.nowPlaying} /> : ''}
       </Main>
     )
   }

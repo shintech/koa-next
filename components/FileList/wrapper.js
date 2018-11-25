@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     background-color: slategrey;
     opacity: 0.7;
     
-    margin: 1ch;
+    margin: 0.5ch;
     width: 28ch;
     color: lightgreen;
     

@@ -30,7 +30,6 @@ class Files extends React.Component {
     
     return (
       <Main title='files' host='shintech.ninja' favicon='/static/images/react.svg'>
-        <Title title={title} fontSize='22ch' colors={['green', 'lightgreen']} />
         <FileList files={files} selectNowPlaying={selectNowPlaying} />
         <Audio media={files.nowPlaying} />
       </Main>

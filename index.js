@@ -10,32 +10,27 @@ require('dotenv').config({
   systemvars: true
 })
 
-const port = parseInt(process.env['PORT']) || 8000
-const environment = process.env['NODE_ENV'] || 'development'
-
-const config = { port, environment, api }
+const PORT = parseInt(process.env['PORT']) || 8000
+const SERVER = parseInt(process.env['SERVER']) || 65330
+const NODE_ENV = process.env['NODE_ENV'] || 'development'
 
 next.prepare()
   .then(() => {
-    const { port, host } = config
-    const logger = createLogger(config)
-
-    const listening = (app, port) => logger.info(`${app} -> listening on port ${port}...`)
+    const logger = createLogger()
+  
+    logger.info(`initializing -> ${pkg.name} - version: ${pkg.version}...`)
+    logger.info(`config: ${JSON.stringify({ PORT, SERVER, NODE_ENV })}...`)
+  
+    const server = createServer({ api, logger })
+  
+    const listening = (app, port, host) => logger.info(`${app} -> listening at ${host}:${port}...`)
     const handleError = (err) => logger.error(err.message)
 
-    logger.info(`initializing -> ${pkg.name} - version: ${pkg.version}...`)
-    logger.info(`config: ${JSON.stringify({ port, environment })}...`)
+    server.listen(SERVER, 'localhost')
+      .on('listening', () => listening('server', SERVER, 'localhost'))
+      .on('error', err => handleError(err))
 
-    const server = createServer({ ...config, logger })
-
-    server.listen(port + 1, host)
-      .on('listening', () => {
-        listening('server', port + 1)
-
-        app.listen(port)
-          .on('listening', () => listening('app', port))
-          .on('error', err => handleError(err))
-      })
-
+    app.listen(PORT)
+      .on('listening', () => listening('app', PORT, '0.0.0.0'))
       .on('error', err => handleError(err))
   })

@@ -5,10 +5,9 @@ import Nav from 'components/Nav'
 import Footer from 'components/Footer'
 import SVG from 'static/images/nextjs.svg'
 import Wrapper from './wrapper'
-import theme from './theme'
 
 const Main = ({ children, title = 'default!', host = 'localhost', favicon = '/static/images/favicon.png' }) =>
-  <Wrapper theme={theme()}>
+  <Wrapper>
     <Head>
       <title>{ title } | {host} </title>
       <link rel='icon' type='image/png' href={favicon} />

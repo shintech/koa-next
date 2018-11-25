@@ -23,6 +23,11 @@ const Wrapper = styled.footer`
       font-size: 3ch;
       margin: 0;
     }
+    
+    &:hover {
+      color: orangered;
+      cursor: default;
+    }    
   }
 
   svg {

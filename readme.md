@@ -5,6 +5,14 @@
     ./install.sh
     
 ### Usage
+
+#### .env
+    
+    PORT=8000
+    NODE_ENV=development
+    BASE_URL=https://domain
+    EMAIL=example@example.org
+
 #### Development
 
     npm run dev

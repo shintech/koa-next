@@ -1,6 +1,6 @@
 {
   "name": "koa-next",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -19,7 +19,7 @@
     "react-redux": "~5.0.5",
     "redux": "~3.7.2",
     "redux-thunk": "~2.2.0",
-    "shintech-logger": "^0.0.1",
+    "shintech-logger": "^0.0.3",
     "styled-components": "^3.4.9",
     "winston": "^3.1.0"
   },
@@ -54,8 +54,8 @@
     "test:react": "jest --verbose -c config/jest/jest.config.react.js",
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
-    "start": "node .",
-    "dev": "nodemon .",
+    "start": "NODE_ENV=production node .",
+    "dev": "NODE_ENV=development nodemon .",
     "begin": "npm run build && npm start",
     "lint": "eslint . --fix"
   },

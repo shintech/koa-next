@@ -6,8 +6,8 @@ const dev = process.env['NODE_ENV'] !== 'production'
 const next = require('next')({ dev })
 const handle = nextRoutes.getRequestHandler(next)
 
-const app = http.createServer((client_req, client_res) => {
-  const parsedURL = parse(client_req.url, true)
+const app = http.createServer((clientReq, clientRes) => {
+  const parsedURL = parse(clientReq.url, true)
   const { pathname } = parsedURL
 
   const hasPrefix = new RegExp('^/api').test(pathname)
@@ -20,12 +20,12 @@ const app = http.createServer((client_req, client_res) => {
 
   if (hasPrefix) {
     http.get(options, req => {
-      client_res.setHeader('Content-Type', 'application/json')
+      clientRes.setHeader('Content-Type', 'application/json')
 
-      req.pipe(client_res)
+      req.pipe(clientRes)
     })
   } else {
-    handle(client_req, client_res, parsedURL)
+    handle(clientReq, clientRes, parsedURL)
   }
 })
 

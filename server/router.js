@@ -7,12 +7,6 @@ module.exports = new Router({
   prefix: '/api'
 })
 
-  .use(async (ctx, next) => {
-    await next()
-
-    ctx.set('Content-Type', 'application/json')
-  })
-
   .get('/trees', trees.fetch)
   .get('/about', about.fetch)
   .get('/files', files.list)

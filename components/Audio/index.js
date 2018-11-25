@@ -1,15 +1,13 @@
 import PropTypes from 'prop-types'
 import Wrapper from './wrapper'
 
-const Audio = ({ media }) =>
-  <Wrapper>
+export default class Player extends React.Component {
+  render () {
+    return (  <Wrapper>
     <audio controls>
-      <source src={media} type="audio/mp3" />
+      <source src={`static/files/${this.props.media}`} type="audio/mp3" />
     </audio> 
-  </Wrapper>
-
-Audio.propTypes = {
-  // media: PropTypes.array
+  </Wrapper>)
+  }
 }
 
-export default Audio

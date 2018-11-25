@@ -35,8 +35,6 @@ module.exports = {
     const file = path.join('static', 'files', ctx.params.filename)
     const type = mime[path.extname(file).slice(1)] || 'text/plain'
     
-    ctx.set({ 'Content-Type': type })
-    
     let stream = fs.createReadStream(file)
     
     // stream.on('open', () => {
@@ -46,7 +44,7 @@ module.exports = {
     
     await next()    
     ctx.status = 200
-    
+    ctx.set({ 'Content-Type': type })
     ctx.body = stream
   }
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Main from 'layouts/Main'
 import Audio from 'components/Audio'
 import Title from 'components/Title'
-import File from 'components/File'
+import FileList from 'components/FileList'
 import actions from 'state/actions/files'
 import filesAPI from 'api/files'
 
@@ -26,13 +26,13 @@ class Files extends React.Component {
   }
 
   render () {
-    const { title, files } = this.props
+    const { title, files, selectNowPlaying } = this.props
     
     return (
       <Main title='files' host='shintech.ninja' favicon='/static/images/react.svg'>
         <Title title={title} fontSize='22ch' colors={['green', 'lightgreen']} />
-          {files.list.map(file => <File key={file} filename={file} />)
-        }
+        <FileList files={files} selectNowPlaying={selectNowPlaying} />
+        <Audio media={files.nowPlaying} />
       </Main>
     )
   }
@@ -40,5 +40,9 @@ class Files extends React.Component {
 
 export default connect(
   state => state,
-  dispatch => ({ })
+  dispatch => ({
+    selectNowPlaying: value => {
+      dispatch(actions.selectNowPlaying(value))
+    }
+  })
 )(Files)

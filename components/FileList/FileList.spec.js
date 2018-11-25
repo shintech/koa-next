@@ -3,7 +3,7 @@
 import { shallow } from 'enzyme'
 import { compose } from 'redux'
 import toJSON from 'enzyme-to-json'
-import File from 'components/File'
+import FileList from 'components/FileList'
 
 const shallowExpect = compose(expect, toJSON, shallow)
 
@@ -17,6 +17,6 @@ const shallowExpect = compose(expect, toJSON, shallow)
 
 describe('COMPONENT -> Content - snapshot...', () => {
   it('expect to render correct properties', () => {
-    shallowExpect(<File filename='file.mp3' />).toMatchSnapshot()
+    shallowExpect(<FileList files={{ list: ['file.mp3', 'file.wav'] }} />).toMatchSnapshot()
   })
 })

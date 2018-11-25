@@ -8,7 +8,7 @@ const format = ({ title, data }) => ({
 module.exports = {
   fetch: ctx => {
     ctx.status = 200
-
+    ctx.set('Content-Type', 'application/json')
     ctx.body = format({
       data: faker.company.bs(),
       title: faker.company.bsBuzz()

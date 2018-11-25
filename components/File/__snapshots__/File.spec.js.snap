@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COMPONENT -> Content - snapshot... expect to render correct properties 1`] = `
+<wrapper__Wrapper>
+  <a
+    href="static/files/file.mp3"
+    key="file.mp3"
+  >
+    file.mp3
+  </a>
+</wrapper__Wrapper>
+`;

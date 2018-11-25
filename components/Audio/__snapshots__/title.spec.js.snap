@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COMPONENT -> Title - snapshot... expect to render correct properties 1`] = `
+<wrapper__Wrapper
+  theme={
+    Object {
+      "fontSize": "16ch",
+      "text": "orange",
+      "textShadow": "0.08ch 0.08ch red",
+    }
+  }
+>
+  <h1>
+    Hello World!!
+  </h1>
+</wrapper__Wrapper>
+`;

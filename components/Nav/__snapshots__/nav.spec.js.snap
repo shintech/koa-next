@@ -49,6 +49,16 @@ exports[`COMPONENT -> Nav - snapshot... expect to render correct properties 1`] 
       contact
     </a>
   </withRouter(ActiveLink)>
+  <withRouter(ActiveLink)
+    activeClassName="active"
+    key="files"
+    prefetch={true}
+    route="/files"
+  >
+    <a>
+      files
+    </a>
+  </withRouter(ActiveLink)>
   <Component
     className="logo"
   />

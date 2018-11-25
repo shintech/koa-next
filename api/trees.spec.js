@@ -3,8 +3,6 @@
 import api from 'api/trees'
 import nock from 'nock'
 
-console.log = jest.fn()
-
 nock('http://localhost:8000')
   .get('/api/trees')
   .reply(200, _treesMock)

@@ -3,8 +3,6 @@
 import api from 'api/about'
 import nock from 'nock'
 
-console.log = jest.fn()
-
 nock('http://localhost:8000')
   .get('/api/about')
   .reply(200, {

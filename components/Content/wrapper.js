@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  margin-top: 1ch;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +17,8 @@ const Wrapper = styled.div`
     margin-bottom: 3ch;
     margin-top: 1.5ch;
     opacity: 0.7;
-    
+    width: 20ch;
+    height: 20ch;
     :hover {
       opacity: 1;
     }

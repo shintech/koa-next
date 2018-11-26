@@ -1,11 +1,12 @@
 version: '3'
 
 services: 
-  express-next:
+  koa-next:
     build: .
-    container_name: express-next
+    container_name: koa-next
     volumes:
-      - ./data/log/express-next:/shintech/log
+      - ./data/log/koa-next:/shintech/log
+      - ./data/files/koa-next:/shintech/static/files:ro
     env_file:
       - ./config/env/.env
     ports:

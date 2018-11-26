@@ -2,6 +2,7 @@
 
 exports[`COMPONENT -> Content - snapshot... expect to render correct properties 1`] = `
 <wrapper__Wrapper>
+  <Component />
   <p>
     Hello World!!
   </p>

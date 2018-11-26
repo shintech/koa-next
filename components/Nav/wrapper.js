@@ -6,11 +6,11 @@ const Wrapper = styled.nav`
 
   display: flex;
   flex-direction: column;
-  
+
   overflow: hidden;
-  
+
   background-color: ${props => props.theme.background};
-  
+
   .icon {
     display: none;
   }
@@ -22,7 +22,7 @@ const Wrapper = styled.nav`
     display: flex;
     align-items: center;
 
-    padding: 2ch;
+    padding: 1ch;
     text-decoration: none;
     font-size: 2.5ch;
 

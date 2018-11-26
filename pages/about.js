@@ -30,8 +30,9 @@ class About extends React.Component {
 
     return (
       <Main title='about' host='shintech.ninja' favicon='/static/images/react.svg' >
-        <Title title={about.title} fontSize='24ch' colors={['gold', 'green']} />
-        <Content content={about.data} />
+        <Content content={about.data}>
+          <Title title={about.title} fontSize='24ch' colors={['gold', 'green']} />
+        </Content>
       </Main>
     )
   }

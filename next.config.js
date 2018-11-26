@@ -20,7 +20,30 @@ module.exports = (phase, { defaultConfig }) => {
     webpack: (config) => {
       config.plugins = config.plugins || []
 
-      // config.module.rules.push({
+      config.plugins = [
+        ...config.plugins,
+
+        new Dotenv({
+          path: path.join(__dirname, 'config', 'env', '.env'),
+          systemvars: true
+        })
+      ]
+
+      config.module.rules.push({
+        test: /\.(txt|jpg|png|svg|mp3|wav)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              context: '',
+              emitFile: true,
+              name: '[path][name].[ext]'
+            }
+          }
+        ]
+      })
+
+      // config.modules.rules.push({
       //   test: /\.js$/,
       //   enforce: 'pre',
       //   exclude: [/node_modules/, '/.next'],
@@ -31,15 +54,6 @@ module.exports = (phase, { defaultConfig }) => {
       //     failOnWarning: false
       //   }
       // })
-
-      config.plugins = [
-        ...config.plugins,
-
-        new Dotenv({
-          path: path.join(__dirname, 'config', 'env', '.env'),
-          systemvars: true
-        })
-      ]
 
       return config
     }

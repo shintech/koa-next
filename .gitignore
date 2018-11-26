@@ -11,3 +11,4 @@
 /config/env/production.env
 /coverage
 /shintech*
+/static/files/*

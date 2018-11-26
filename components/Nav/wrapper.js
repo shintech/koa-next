@@ -22,7 +22,7 @@ const Wrapper = styled.nav`
     display: flex;
     align-items: center;
 
-    padding: 2ch;
+    padding: 1.5ch;
     text-decoration: none;
     font-size: 2.5ch;
 

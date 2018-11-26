@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Wrapper from './wrapper'
-import SVG from 'static/images/react.svg'
+import SVG from 'static/images/notes.svg'
 
 const nowPlaying = (file, cb) => {
   const fileURL = `${process.env['BASE_URL']}/api/files/${file}`

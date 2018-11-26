@@ -18,6 +18,7 @@ function toggleResponsive () { // TODO create redux action
 const Nav = () =>
   <Wrapper id='container'theme={theme()}>
     {Router.routes.map(link => {
+
       let name = (link.name === 'index') ? 'home' : link.name
 
       return <Link key={name} prefetch activeClassName='active' route={link.page}><a>{name}</a></Link>

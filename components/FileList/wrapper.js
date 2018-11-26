@@ -12,11 +12,11 @@ const Wrapper = styled.div`
     grid-template-rows: [start row-1] auto [stop end];
     grid-template-columns: [start column-1] auto [column-2] auto [end];
     background-color: slategrey;
-    opacity: 0.7;
+    opacity: 1;
 
     margin: 0.5ch;
     width: 28ch;
-    color: lightgreen;
+    color: black;
 
     text-decoration: none;
     border-radius: 1ch;
@@ -30,6 +30,10 @@ const Wrapper = styled.div`
       }
     }
 
+    .active {
+      background-color: orange;
+    }
+    
     .info {
       grid-column: 2;
       grid-row: 1;
@@ -44,8 +48,9 @@ const Wrapper = styled.div`
 
     :hover {
       cursor: pointer;
-      opacity: 1;
+      opacity: 0.75;
       color: yellow;
+      border-color: white;
     }
   }
 `

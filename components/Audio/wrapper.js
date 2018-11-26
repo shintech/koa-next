@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   
   audio {
     background-color: purple;
-    min-width: 85vh;
+    min-width: 65vh;
   }
 `
 

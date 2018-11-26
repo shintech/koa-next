@@ -2,42 +2,37 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Main from 'layouts/Main'
 import Audio from 'components/Audio'
-import Title from 'components/Title'
 import FileList from 'components/FileList'
 import actions from 'state/actions/files'
 import filesAPI from 'api/files'
 
 class Files extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.props.files.nowPlaying = null
-  }
-  
   componentWillReceiveProps () {
     this.props.files.nowPlaying = null
   }
-  
+
   static async getInitialProps ({ store }) {
     try {
       let files = await filesAPI.list()
-      
+
       store.dispatch(actions.listSuccess(files))
     } catch (err) {
       console.error(err)
     }
-    
+
     return {
       title: 'Files!!'
     }
   }
 
   static propTypes = {
+    files: PropTypes.object.isRequired,
+    selectNowPlaying: PropTypes.func.isRequired
   }
 
   render () {
     const { files, selectNowPlaying } = this.props
-    
+
     return (
       <Main title='files' host='shintech.ninja' favicon='/static/images/react.svg'>
         <FileList files={files} selectNowPlaying={selectNowPlaying} />

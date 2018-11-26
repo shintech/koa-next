@@ -11,8 +11,8 @@ const files = (state = initialState, action) => {
     case C.FILE_LIST_SUCCESS:
       return { ...state, list: action.payload, loaded: true }
 
-    case C.SELECT_NOW_PLAYING: 
-        return { ...state, nowPlaying: action.payload, loaded: true }
+    case C.SELECT_NOW_PLAYING:
+      return { ...state, nowPlaying: action.payload, loaded: true }
 
     default:
       return state

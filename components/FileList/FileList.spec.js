@@ -15,7 +15,7 @@ const shallowExpect = compose(expect, toJSON, shallow)
 //   })
 // })
 
-describe('COMPONENT -> Content - snapshot...', () => {
+describe('COMPONENT -> FileList - snapshot...', () => {
   it('expect to render correct properties', () => {
     shallowExpect(<FileList files={{ list: ['file.mp3', 'file.wav'] }} />).toMatchSnapshot()
   })

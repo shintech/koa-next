@@ -10,9 +10,9 @@ describe('REDUX -> REDUCER - /files -> FILE_LIST_SUCCESS...', () => {
     loaded: false,
     nowPlaying: null
   }
-  
+
   const payload = ['file.mp3', 'file.wav']
-  
+
   const action = {
     type: C.FILE_LIST_SUCCESS,
     payload
@@ -29,7 +29,7 @@ describe('REDUX -> REDUCER - /files -> FILE_LIST_SUCCESS...', () => {
 
   it(`expect results.loaded to be true...`, () => {
     expect(results.loaded).toBeTruthy()
-  })  
+  })
 })
 
 describe('REDUX -> REDUCER - /files -> SELECT_NOW_PLAYING...', () => {
@@ -38,9 +38,9 @@ describe('REDUX -> REDUCER - /files -> SELECT_NOW_PLAYING...', () => {
     loaded: false,
     nowPlaying: null
   }
-  
+
   const payload = 'file.mp3'
-  
+
   const action = {
     type: C.SELECT_NOW_PLAYING,
     payload

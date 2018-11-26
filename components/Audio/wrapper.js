@@ -1,9 +1,12 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
+  position: fixed;
+  bottom: 0;
+  
   audio {
-    width: 100%;
-    background-color: green;
+    background-color: purple;
+    min-width: 85vh;
   }
 `
 

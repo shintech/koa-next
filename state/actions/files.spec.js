@@ -5,7 +5,7 @@ import actions from 'state/actions/files'
 
 describe('REDUX -> ACTION - /files -> listSuccess()...', () => {
   const store = initStore({}, { isServer: true })
-  
+
   const payload = ['ding.mp3', 'file.wav']
 
   beforeAll(() => {

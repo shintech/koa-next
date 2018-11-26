@@ -42,7 +42,7 @@ module.exports = (phase, { defaultConfig }) => {
           }
         ]
       })
-      
+
       // config.modules.rules.push({
       //   test: /\.js$/,
       //   enforce: 'pre',

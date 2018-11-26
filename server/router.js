@@ -1,7 +1,7 @@
 const Router = require('koa-router')
 const trees = require('./routes/trees')
 const about = require('./routes/about')
-const files = require("./routes/files")
+const files = require('./routes/files')
 
 module.exports = new Router({
   prefix: '/api'

@@ -1,6 +1,6 @@
-const fs = require("fs")
-const path = require("path")
-const { promisify } = require("util")
+const fs = require('fs')
+const path = require('path')
+const { promisify } = require('util')
 
 const readDir = promisify(fs.readdir)
 
@@ -16,33 +16,28 @@ var mime = {
   mp3: 'audio/mpeg',
   wav: 'audio/wav'
 }
-  
+
 module.exports = {
   list: async ctx => {
-    let body 
-    
+    let body
+
     try {
       body = await readDir('static/files')
     } catch (err) {
       body = err.message
     }
-    
+
     ctx.status = 200
     ctx.body = body
   },
-  
+
   fetch: async (ctx, next) => {
     const file = path.join('static', 'files', ctx.params.filename)
     const type = mime[path.extname(file).slice(1)] || 'text/plain'
-    
-    let stream = fs.createReadStream(file)
-    
-    // stream.on('open', () => {
-    //   ctx.set('Content-Type', type)
-    //   stream.pipe(res)
-    // })
-    
-    await next()    
+    const stream = fs.createReadStream(file)
+
+    await next()
+
     ctx.status = 200
     ctx.set({ 'Content-Type': type })
     ctx.body = stream

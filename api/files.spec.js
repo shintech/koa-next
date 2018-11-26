@@ -13,7 +13,7 @@ nock('http://localhost:8000')
 
 describe('API -> FILES -> api.list()...', () => {
   let json
-  
+
   beforeAll(async () => {
     json = await filesAPI.list()
   })
@@ -21,7 +21,7 @@ describe('API -> FILES -> api.list()...', () => {
   it('expect files to have property "list"...', () => {
     expect(json).toHaveProperty('list')
   })
-  
+
   it(`expect files.list to equal [${list}]`, () => {
     expect(json.list).toEqual(list)
   })

@@ -1,12 +1,12 @@
 # shintech/koa-next
 
 ## Table of Contents
-1. [ Synopsis. ](#synopsis)
-2. [ Usage. ](#usage)
-	a. [.env](#env)
-	b. [Development](#development)
-	c. [Production](#production)
-3. [ TODO. ](#todo)
+1. [ Synopsis ](#synopsis)
+2. [ Usage ](#usage)
+	a. [.env ](#env)
+	b. [Development ](#development)
+	c. [Production ](#production)
+3. [ TODO ](#todo)
 
 <a name="synopsis"></a>
 ### Synopsis

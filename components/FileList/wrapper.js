@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     grid-template-rows: [start row-1] auto [stop end];
     grid-template-columns: [start column-1] auto [column-2] auto [end];
     background-color: slategrey;
-    opacity: 1;
+    opacity: 0.7;
 
     margin: 0.5ch;
     width: 28ch;
@@ -48,7 +48,7 @@ const Wrapper = styled.div`
 
     :hover {
       cursor: pointer;
-      opacity: 0.75;
+      opacity: 1;
       color: yellow;
       border-color: white;
     }

@@ -10,7 +10,9 @@ exports[`COMPONENT -> Title - snapshot... expect to render correct properties 1`
     }
   }
 >
-  <h1>
+  <h1
+    className="title"
+  >
     Hello World!!
   </h1>
 </wrapper__Wrapper>

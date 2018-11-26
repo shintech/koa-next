@@ -51,12 +51,12 @@ exports[`COMPONENT -> Nav - snapshot... expect to render correct properties 1`] 
   </withRouter(ActiveLink)>
   <withRouter(ActiveLink)
     activeClassName="active"
-    key="files"
+    key="music"
     prefetch={true}
     route="/files"
   >
     <a>
-      files
+      music
     </a>
   </withRouter(ActiveLink)>
   <Component

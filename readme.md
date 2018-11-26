@@ -2,9 +2,9 @@
 
 ## Table of Contents
 1. [ Synopsis ](#synopsis)
-2. [ Usage ](#usage)
-	a. [.env ](#env)
-	b. [Development ](#development)
+2. [ Usage ](#usage) <br />
+	a. [.env ](#env) <br />
+	b. [Development ](#development) <br />
 	c. [Production ](#production)
 3. [ TODO ](#todo)
 

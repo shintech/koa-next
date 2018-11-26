@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   grid-template-columns: [start column-1] 30vh [column-2] auto [end];
 
   main {
-    min-height: 87.5vh;
+    min-height: 89vh;
     grid-row: 2;
     grid-column: 2;
     display: flex;

@@ -5,11 +5,6 @@ const { next, app } = require('./app')
 const api = require('./server/router')
 const pkg = require('./package.json')
 
-require('dotenv').config({
-  path: path.join(__dirname, 'config', 'env', '.env'),
-  systemvars: true
-})
-
 const PORT = parseInt(process.env['PORT']) || 8000
 const SERVER = parseInt(process.env['SERVER']) || 65330
 const NODE_ENV = process.env['NODE_ENV'] || 'development'

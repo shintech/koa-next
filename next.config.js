@@ -1,6 +1,5 @@
 const path = require('path')
-const Dotenv = require('dotenv-webpack')
-
+const webpack = require("webpack")
 const username = process.env['USERNAME']
 const password = process.env['PASSWORD']
 const BASE_URL = process.env['BASE_URL'] || 'http://localhost:8000'
@@ -22,11 +21,15 @@ module.exports = (phase, { defaultConfig }) => {
 
       config.plugins = [
         ...config.plugins,
-
-        new Dotenv({
-          path: path.join(__dirname, 'config', 'env', '.env'),
-          systemvars: true
+        
+        new webpack.DefinePlugin({
+          'process.env.PORT': JSON.stringify(process.env['PORT']),
+          'process.env.HOST': JSON.stringify(process.env['HOST']),
+          'process.env.SERVER': JSON.stringify(process.env['SERVER']),
+          'process.env.BASE_URL': JSON.stringify(process.env['BASE_URL']),
+          'process.env.EMAIL': JSON.stringify(process.env['EMAIL'])
         })
+
       ]
 
       config.module.rules.push({

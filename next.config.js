@@ -1,5 +1,4 @@
-const path = require('path')
-const webpack = require("webpack")
+const webpack = require('webpack')
 const username = process.env['USERNAME']
 const password = process.env['PASSWORD']
 const BASE_URL = process.env['BASE_URL'] || 'http://localhost:8000'
@@ -21,7 +20,7 @@ module.exports = (phase, { defaultConfig }) => {
 
       config.plugins = [
         ...config.plugins,
-        
+
         new webpack.DefinePlugin({
           'process.env.PORT': JSON.stringify(process.env['PORT']),
           'process.env.HOST': JSON.stringify(process.env['HOST']),

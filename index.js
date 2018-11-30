@@ -1,4 +1,3 @@
-const path = require('path')
 const createServer = require('./server')
 const createLogger = require('shintech-logger')
 const { next, app } = require('./app')

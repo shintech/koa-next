@@ -30,12 +30,12 @@ describe('SERVER -> GET -- 404 ERROR...', () => {
   it('expect body -> message to be "404 - not found"...', () => {
     expect(ctx.body.status).toBe('error')
   })
-  
+
   it('expect body to have property message...', () => {
     expect(ctx.body).toHaveProperty('message')
   })
 
   it('expect body -> message to be "404 - not found"...', () => {
     expect(ctx.body.message).toBe('404 - not found')
-  })  
+  })
 })

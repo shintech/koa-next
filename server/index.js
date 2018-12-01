@@ -49,7 +49,8 @@ module.exports = ({
 
   server.use(ctx => {
     ctx.body = {
-      status: 'error'
+      status: 'error',
+      message: '404 - not found'
     }
 
     ctx.status = 404

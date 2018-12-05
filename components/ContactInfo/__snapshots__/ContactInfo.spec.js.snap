@@ -7,6 +7,7 @@ exports[`COMPONENT -> ContactInfo - snapshot... expect to render correct propert
   >
     <a
       href="mailto:undefined"
+      rel="noopener noreferrer"
       target="_blank"
     />
   </li>
@@ -15,6 +16,7 @@ exports[`COMPONENT -> ContactInfo - snapshot... expect to render correct propert
   >
     <a
       href="https://example.org/repo"
+      rel="noopener noreferrer"
       target="_blank"
     >
       author.name

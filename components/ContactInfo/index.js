@@ -3,8 +3,8 @@ import Wrapper from './wrapper'
 
 const ContactInfo = ({ name, author, repository }) =>
   <Wrapper>
-    <li className='email'><a target="_blank" href={`mailto:${author.email}`}>{author.email}</a></li>
-    <li className='repo'><a target="_blank" href={`${repository.url}`}>{author.name}/{name}</a></li>
+    <li className='email'><a target="_blank" rel="noopener noreferrer" href={`mailto:${author.email}`}>{author.email}</a></li>
+    <li className='repo'><a target="_blank" rel="noopener noreferrer" href={`${repository.url}`}>{author.name}/{name}</a></li>
   </Wrapper>
 
 ContactInfo.propTypes = {

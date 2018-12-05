@@ -8,10 +8,10 @@ import Title from 'components/Title'
 const shallowExpect = compose(expect, toJSON, shallow)
 
 describe('COMPONENT -> Title...', () => {
-  let clicker = shallow(<Title title='Hello World!' />)
+  let clicker = shallow(<Title title='Hello World' />)
 
   it(`expect Title h1 text to equal "title"...`, () => {
-    expect(clicker.find('h1').text()).toBe('Hello World!')
+    expect(clicker.find('h1').text()).toBe('Hello World!!')
   })
 })
 

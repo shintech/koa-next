@@ -4,9 +4,8 @@ const bodyParser = require('koa-bodyparser')
 
 module.exports = ({
   logger = console,
-  db = {},
-  api
-}) => {
+  db = {}
+} = {}) => {
   const server = new Koa()
 
   server.use(async (ctx, next) => {
@@ -43,18 +42,6 @@ module.exports = ({
   }))
 
   server.use(bodyParser())
-
-  server.use(api.routes())
-  server.use(api.allowedMethods())
-
-  server.use(ctx => {
-    ctx.body = {
-      status: 'error',
-      message: '404 - not found'
-    }
-
-    ctx.status = 404
-  })
 
   server.use(async (ctx, next) => {
     ctx.logger = logger

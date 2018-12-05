@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import App, { Container } from 'next/app'
+import styled from 'styled-components'
 import { Provider } from 'react-redux'
 import { PageTransition } from 'next-page-transitions'
 import { reduxPage } from 'state'

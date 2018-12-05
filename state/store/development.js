@@ -1,8 +1,10 @@
 import { createStore, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'remote-redux-devtools'
 import withRedux from 'next-redux-wrapper'
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'remote-redux-devtools'
 import reducers from 'state/reducers'
+
+const composeEnhancers = composeWithDevTools({ })
 
 const clientLogger = store => next => action => {
   let result
@@ -27,7 +29,7 @@ const middleWare = server => [
 
 export const initStore = (initialState = {}, ctx) => {
   const { isServer } = ctx
-  return createStore(reducers, initialState, composeWithDevTools(applyMiddleware(...middleWare(isServer))))
+  return createStore(reducers, initialState, composeEnhancers(applyMiddleware(...middleWare(isServer))))
 }
 
 if (module.hot) {

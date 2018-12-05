@@ -1,13 +1,18 @@
 const webpack = require('webpack')
-const username = process.env['USERNAME']
-const password = process.env['PASSWORD']
-const BASE_URL = process.env['BASE_URL'] || 'http://localhost:8000'
 
-const auth = 'Basic ' + Buffer.from(username + ':' + password).toString('base64')
+const USERNAME = process.env['USERNAME']
+const PASSWORD = process.env['PASSWORD']
+const BASE_URL = process.env['BASE_URL'] || 'http://localhost:8000'
+const DOMAIN = process.env['DOMAIN'] || 'example.domain'
+const EMAIL = process.env['EMAIL'] || 'email@example.org'
+
+const AUTH = 'Basic ' + Buffer.from(USERNAME + ':' + PASSWORD).toString('base64')
 
 const runtimeConfig = {
-  auth,
-  BASE_URL
+  AUTH,
+  BASE_URL,
+  DOMAIN,
+  EMAIL
 }
 
 module.exports = (phase, { defaultConfig }) => {
@@ -22,13 +27,8 @@ module.exports = (phase, { defaultConfig }) => {
         ...config.plugins,
 
         new webpack.DefinePlugin({
-          'process.env.PORT': JSON.stringify(process.env['PORT']),
-          'process.env.HOST': JSON.stringify(process.env['HOST']),
-          'process.env.SERVER': JSON.stringify(process.env['SERVER']),
-          'process.env.BASE_URL': JSON.stringify(process.env['BASE_URL']),
-          'process.env.EMAIL': JSON.stringify(process.env['EMAIL'])
+          'process.env.NODE_ENV': JSON.stringify(process.env['NODE_ENV'])
         })
-
       ]
 
       config.module.rules.push({

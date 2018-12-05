@@ -7,7 +7,7 @@ exports[`COMPONENT -> Footer - snapshot... expect to render correct properties 1
   >
     © 
     <span>
-      message
+      domain
     </span>
   </a>
 </wrapper__Wrapper>

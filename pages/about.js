@@ -1,37 +1,40 @@
 import { connect } from 'react-redux'
+import getConfig from 'next/config'
 import PropTypes from 'prop-types'
+import faker from 'faker'
 import Main from 'layouts/Main'
 import Title from 'components/Title'
 import Content from 'components/Content'
-import api from 'api/about'
-import actions from 'state/actions/about'
+
+const { publicRuntimeConfig, serverRuntimeConfig } = getConfig()
 
 class About extends React.Component {
-  static async getInitialProps ({ store }) {
-    try {
-      let json = await api.fetch()
+  static async getInitialProps ({ req, store }) {
+    const { DOMAIN } = (req) ? serverRuntimeConfig : publicRuntimeConfig
 
-      store.dispatch(actions.fetch(json))
-    } catch (err) {
-      console.error(err.message)
-    }
+    const DATA = faker.company.bs()
+    const TITLE = faker.company.bsBuzz()
 
     return {
-      custom: 'About!!'
+      DOMAIN,
+      TITLE,
+      DATA
     }
   }
 
   static propTypes = {
-    about: PropTypes.object.isRequired
+    TITLE: PropTypes.string.isRequired,
+    DATA: PropTypes.string.isRequired,
+    DOMAIN: PropTypes.string.isRequired
   }
 
   render () {
-    const { about } = this.props
+    const { TITLE, DATA, DOMAIN } = this.props
 
     return (
-      <Main title='about' host='shintech.ninja' favicon='/static/images/react.svg' >
-        <Content content={about.data}>
-          <Title title={about.title} fontSize='24ch' colors={['gold', 'green']} />
+      <Main title='about' domain={DOMAIN} favicon='/static/images/react.svg' >
+        <Content content={DATA}>
+          <Title title={TITLE} fontSize='24ch' colors={['gold', 'green']} />
         </Content>
       </Main>
     )

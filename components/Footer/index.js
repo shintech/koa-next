@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Wrapper from './wrapper'
 
-const Footer = ({ message = 'localhost' }) =>
+const Footer = ({ domain }) =>
   <Wrapper>
-    <a href='#'>&#169;&nbsp;<span>{ message }</span></a>
+    <a href='#'>&#169;&nbsp;<span>{ domain }</span></a>
   </Wrapper>
 
 Footer.propTypes = {
-  message: PropTypes.string.isRequired
+  domain: PropTypes.string.isRequired
 }
 
 export default Footer

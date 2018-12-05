@@ -6,10 +6,10 @@ import Footer from 'components/Footer'
 import SVG from 'static/images/nextjs.svg'
 import Wrapper from './wrapper'
 
-const Main = ({ children, title = 'default!', host = 'localhost', favicon = '/static/images/favicon.png' }) =>
+const Main = ({ children, title, domain, favicon = '/static/images/favicon.png' }) =>
   <Wrapper>
     <Head>
-      <title>{ title } | {host} </title>
+      <title>{ title } | {domain} </title>
       <link rel='icon' type='image/png' href={favicon} />
     </Head>
 
@@ -21,13 +21,13 @@ const Main = ({ children, title = 'default!', host = 'localhost', favicon = '/st
       { children }
     </main>
 
-    <Footer message={host} />
+    <Footer domain={domain} />
   </Wrapper>
 
 Main.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
-  host: PropTypes.string.isRequired,
+  domain: PropTypes.string.isRequired,
   favicon: PropTypes.string
 }
 

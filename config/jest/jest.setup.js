@@ -3,7 +3,6 @@ import Adapter from 'enzyme-adapter-react-16'
 import React from 'react'
 import createServer from '../..//server'
 import createLogger from 'shintech-logger'
-import api from '../../server/router'
 
 configure({ adapter: new Adapter() })
 
@@ -16,7 +15,7 @@ global.process.env = {
 
 const logger = createLogger()
 
-const server = createServer({ api, logger })
+const server = createServer({ logger })
 
 global._server = server
 

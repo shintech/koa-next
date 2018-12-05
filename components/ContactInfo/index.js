@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import Wrapper from './wrapper'
 
-const ContactInfo = ({ email = 'example@example.org' }) =>
+const ContactInfo = ({ email }) =>
   <Wrapper>
     <a href={`mailto:${email}`}>{email}</a>
   </Wrapper>

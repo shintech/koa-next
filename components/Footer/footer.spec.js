@@ -8,18 +8,18 @@ import Footer from 'components/Footer'
 const shallowExpect = compose(expect, toJSON, shallow)
 
 describe('COMPONENT -> Footer...', () => {
-  let message = 'message'
-  let footer = shallow(<Footer message={message} />)
+  let domain = 'domain'
+  let footer = shallow(<Footer domain={domain} />)
 
-  it(`expect Footer messsage text to equal "message"...`, () => {
-    expect(footer.find('a span').text()).toBe(message)
+  it(`expect Footer domain to equal "domain"...`, () => {
+    expect(footer.find('a span').text()).toBe(domain)
   })
 })
 
 describe('COMPONENT -> Footer - snapshot...', () => {
   it('expect to render correct properties', () => {
-    let message = 'message'
+    let domain = 'domain'
 
-    shallowExpect(<Footer message={message} />).toMatchSnapshot()
+    shallowExpect(<Footer domain={domain} />).toMatchSnapshot()
   })
 })

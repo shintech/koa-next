@@ -1,10 +1,10 @@
 const webpack = require('webpack')
+const PKG = require('./package.json')
 
 const USERNAME = process.env['USERNAME']
 const PASSWORD = process.env['PASSWORD']
 const BASE_URL = process.env['BASE_URL'] || 'http://localhost:8000'
 const DOMAIN = process.env['DOMAIN'] || 'example.domain'
-const EMAIL = process.env['EMAIL'] || 'email@example.org'
 
 const AUTH = 'Basic ' + Buffer.from(USERNAME + ':' + PASSWORD).toString('base64')
 
@@ -12,7 +12,7 @@ const runtimeConfig = {
   AUTH,
   BASE_URL,
   DOMAIN,
-  EMAIL
+  PKG
 }
 
 module.exports = (phase, { defaultConfig }) => {

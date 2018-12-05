@@ -1,8 +1,17 @@
 {
   "name": "koa-next",
+  "author": {
+    "name": "shintech",
+    "email": "support@shintech.ninja"
+  },
   "version": "0.2.0",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "https://github.com/shintech/koa-next",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shintech/koa-next"
+  },
   "dependencies": {
     "faker": "^4.1.0",
     "got": "^9.3.2",

@@ -13,7 +13,7 @@ class Home extends React.Component {
     const { DOMAIN } = (req) ? serverRuntimeConfig : publicRuntimeConfig
 
     return {
-      title: 'Hello World!!',
+      title: 'Hello World',
       DOMAIN
     }
   }

@@ -2,10 +2,25 @@
 
 exports[`COMPONENT -> ContactInfo - snapshot... expect to render correct properties 1`] = `
 <wrapper__Wrapper>
-  <a
-    href="mailto:email@example.org"
+  <li
+    className="email"
   >
-    email@example.org
-  </a>
+    <a
+      href="mailto:undefined"
+      target="_blank"
+    />
+  </li>
+  <li
+    className="repo"
+  >
+    <a
+      href="https://example.org/repo"
+      target="_blank"
+    >
+      author.name
+      /
+      name
+    </a>
+  </li>
 </wrapper__Wrapper>
 `;

@@ -66,7 +66,7 @@
     "build:watch:server": "babel ./server -d dist --watch",
     "start": "NODE_ENV=production node .",
     "dev": "NODE_ENV=development PORT=8000 HOST=localhost SERVER=http://localhost:65330 BASE_URL=https://shintech.ninja EMAIL=email@example.org DOMAIN=shintech.ninja nodemon .",
-    "remotedev": "remotedev --hostname=localhost --port=8000",
+    "remotedev": "remotedev --hostname=localhost --port=9000",
     "begin": "npm run build && npm start",
     "lint": "eslint . --fix"
   },

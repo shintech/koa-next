@@ -44,6 +44,6 @@ next.prepare()
     const handleError = (err) => logger.error(err.message)
 
     server.listen(PORT)
-      .on('listening', () => listening('app', PORT, '0.0.0.0'))
+      .on('listening', () => listening('server', PORT, '0.0.0.0'))
       .on('error', err => handleError(err))
   })

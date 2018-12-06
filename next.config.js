@@ -5,6 +5,7 @@ const USERNAME = process.env['USERNAME']
 const PASSWORD = process.env['PASSWORD']
 const BASE_URL = process.env['BASE_URL'] || 'http://localhost:8000'
 const DOMAIN = process.env['DOMAIN'] || 'example.domain'
+const NODE_ENV = process.env['NODE_ENV']
 
 const AUTH = 'Basic ' + Buffer.from(USERNAME + ':' + PASSWORD).toString('base64')
 
@@ -56,6 +57,12 @@ module.exports = (phase, { defaultConfig }) => {
       //     failOnWarning: false
       //   }
       // })
+      if (NODE_ENV === 'production') {
+        config.resolve.alias = {
+          'react': 'inferno-compat',
+          'react-dom': 'inferno-compat'
+        }
+      }
 
       return config
     }

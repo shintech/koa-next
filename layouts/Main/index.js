@@ -9,7 +9,7 @@ import Wrapper from './wrapper'
 const Main = ({ children, title, domain, favicon = '/static/images/favicon.png' }) =>
   <Wrapper>
     <Head>
-      <title>{ title } | {domain} </title>
+      <title>{ `${title} | ${domain}` }</title>
       <link rel='icon' type='image/png' href={favicon} />
     </Head>
 

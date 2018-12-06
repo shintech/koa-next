@@ -1,3 +1,15 @@
+const moduleAlias = require('module-alias')
+
+const NODE_ENV = process.env['NODE_ENV'] || 'development'
+
+const dev = NODE_ENV !== 'production'
+
+if (!dev) {
+  moduleAlias.addAlias('react', 'inferno-compat')
+  moduleAlias.addAlias('react-dom/server', 'inferno-server')
+  moduleAlias.addAlias('react-dom', 'inferno-compat')
+}
+
 const got = require('got')
 const { URL } = require('url')
 const Router = require('koa-router')
@@ -8,11 +20,9 @@ const pkg = require('./package.json')
 
 const PORT = parseInt(process.env['PORT']) || 8000
 const SERVER = new URL(process.env['SERVER'] || 'http://localhost:65330')
-const NODE_ENV = process.env['NODE_ENV'] || 'development'
 
-const next = require('next')({ dev: NODE_ENV !== 'production' })
+const next = require('next')({ dev })
 const handle = nextRoutes.getRequestHandler(next)
-
 next.prepare()
   .then(() => {
     const logger = createLogger()

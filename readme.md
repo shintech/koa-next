@@ -44,3 +44,4 @@
 ### TODO
 - [ ] more descriptive names for redux actions
 - [ ] https://github.com/zalmoxisus/remotedev-server - move remotedev server to local environment
+- [ ] fix title [ object object ]

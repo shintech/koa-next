@@ -12,29 +12,29 @@ class About extends React.Component {
   static async getInitialProps ({ req, store }) {
     const { DOMAIN } = (req) ? serverRuntimeConfig : publicRuntimeConfig
 
-    const DATA = faker.company.bs()
-    const TITLE = faker.company.bsBuzz()
+    const data = faker.company.bs()
+    const title = faker.company.bsBuzz()
 
     return {
       DOMAIN,
-      TITLE,
-      DATA
+      title,
+      data
     }
   }
 
   static propTypes = {
-    TITLE: PropTypes.string.isRequired,
-    DATA: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    data: PropTypes.string.isRequired,
     DOMAIN: PropTypes.string.isRequired
   }
 
   render () {
-    const { TITLE, DATA, DOMAIN } = this.props
+    const { title, data, DOMAIN } = this.props
 
     return (
       <Main title='about' domain={DOMAIN} favicon='/static/images/react.svg' >
-        <Content content={DATA}>
-          <Title title={TITLE} fontSize='24ch' colors={['gold', 'green']} />
+        <Content content={data}>
+          <Title title={title} fontSize='24ch' colors={['gold', 'green']} />
         </Content>
       </Main>
     )

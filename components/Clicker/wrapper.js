@@ -9,7 +9,7 @@ const Wrapper = styled.div`
     text-align: center;
 
     span {
-      color: ${props => props.theme.number};
+      color: ${props => props.theme.number[0]};
     }
   }
 
@@ -41,6 +41,21 @@ const Wrapper = styled.div`
       color:  ${props => props.theme.button.activeText};
     }
   }
+  
+  .motion {
+    border-radius: 1ch;
+    background-color: white;
+    margin: 1ch auto;
+    width: 80vh;
+    height: 5ch;
+  }
+  
+  .block {
+    width: 5ch;
+    height: 5ch;
+    border-radius: 1ch;
+    background-color: ${props => props.theme.number[1]};
+  }  
 `
 
 export default Wrapper

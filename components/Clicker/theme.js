@@ -1,8 +1,8 @@
 export default ({ value = 0 }) => {
   let numberQualityDescriptorColor = (num) => {
-    if (num < 0) { return 'lightcoral' }
-    if (num === 0) { return 'deepskyblue' }
-    if (num > 0) { return 'palegreen' }
+    if (num < 0) { return ['lightcoral', 'darkred'] }
+    if (num === 0) { return ['deepskyblue', 'midnightblue'] }
+    if (num > 0) { return ['palegreen', 'indigo'] }
   }
 
   return {

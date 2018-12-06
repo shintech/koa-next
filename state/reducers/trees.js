@@ -1,7 +1,8 @@
 import C from 'state/constants'
 
 const initialState = {
-  value: 0
+  value: 0,
+  open: false
 }
 
 const trees = (state = initialState, action) => {

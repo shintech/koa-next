@@ -4,7 +4,7 @@
     "name": "shintech",
     "email": "support@shintech.ninja"
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "index.js",
   "license": "MIT",
   "homepage": "https://github.com/shintech/koa-next",

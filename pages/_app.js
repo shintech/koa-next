@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Provider } from 'react-redux'
 import { PageTransition } from 'next-page-transitions'
 import { reduxPage } from 'state'
+import 'isomorphic-unfetch'
 
 /*  /pages/_app.js  */
 

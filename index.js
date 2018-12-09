@@ -1,4 +1,4 @@
-const got = require('got')
+// const got = require('got')
 const { URL } = require('url')
 const Router = require('koa-router')
 const nextRoutes = require('./routes')
@@ -13,6 +13,10 @@ const NODE_ENV = process.env['NODE_ENV'] || 'development'
 const next = require('next')({ dev: NODE_ENV !== 'production' })
 const handle = nextRoutes.getRequestHandler(next)
 
+// const proxy = async ctx => {
+//   ctx.body = await got.stream(`${SERVER.origin}${ctx.path}`)
+// }
+
 next.prepare()
   .then(() => {
     const logger = createLogger()
@@ -20,9 +24,7 @@ next.prepare()
 
     const server = createServer({ logger })
 
-    router.get('/api/*', async (ctx, next) => {
-      ctx.body = await got.stream(`${SERVER.origin}${ctx.path}`)
-    })
+    // router.get('/api/', proxy)
 
     router.get('*', async ctx => {
       await handle(ctx.req, ctx.res)

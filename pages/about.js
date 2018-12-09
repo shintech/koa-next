@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import getConfig from 'next/config'
 import PropTypes from 'prop-types'
-import faker from 'faker'
 import Main from 'layouts/Main'
 import Title from 'components/Title'
 import Content from 'components/Content'
@@ -10,35 +9,54 @@ const { publicRuntimeConfig, serverRuntimeConfig } = getConfig()
 
 class About extends React.Component {
   static async getInitialProps ({ req, store }) {
-    const { DOMAIN } = (req) ? serverRuntimeConfig : publicRuntimeConfig
+    const { DOMAIN, BASE_URL } = (req) ? serverRuntimeConfig : publicRuntimeConfig
+    let title, content
 
-    const DATA = faker.company.bs()
-    const TITLE = faker.company.bsBuzz()
+    try {
+      const response = await fetchRemoteData(`${BASE_URL}/api/about`)
+
+      title = response.title
+      content = response.content
+    } catch (err) {
+      title = 'About'
+      content = 'shintech.ninja'
+    }
 
     return {
       DOMAIN,
-      TITLE,
-      DATA
+      title,
+      content
     }
   }
 
   static propTypes = {
-    TITLE: PropTypes.string.isRequired,
-    DATA: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
     DOMAIN: PropTypes.string.isRequired
   }
 
   render () {
-    const { TITLE, DATA, DOMAIN } = this.props
+    const { title, content, DOMAIN } = this.props
 
     return (
       <Main title='about' domain={DOMAIN} favicon='/static/images/react.svg' >
-        <Content content={DATA}>
-          <Title title={TITLE} fontSize='24ch' colors={['gold', 'green']} />
+        <Content content={content}>
+          <Title title={title} fontSize='24ch' colors={['gold', 'green']} />
         </Content>
       </Main>
     )
   }
+}
+
+function fetchRemoteData (BASE_URL) {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  return fetch(BASE_URL, options).then(response => response.json())
 }
 
 export default connect(

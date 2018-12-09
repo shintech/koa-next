@@ -2,10 +2,7 @@ const Koa = require('koa')
 const compression = require('koa-compress')
 const bodyParser = require('koa-bodyparser')
 
-module.exports = ({
-  logger = console,
-  db = {}
-} = {}) => {
+module.exports = ({ logger = console, db = {} }) => {
   const server = new Koa()
 
   server.use(async (ctx, next) => {

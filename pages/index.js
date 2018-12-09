@@ -28,7 +28,7 @@ class Home extends React.Component {
 
   render () {
     const { title, trees, increment, decrement, DOMAIN } = this.props
-    
+
     return (
       <Main title='home' domain={DOMAIN} favicon='/static/images/nodejs-icon.svg'>
         <Title title={title} fontSize='18ch' />

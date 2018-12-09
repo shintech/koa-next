@@ -33,7 +33,8 @@
     "window": false,
     "React": true,
     "_treesMock": true,
-    "_server": true
+    "_server": true,
+    "fetch": true
   },
   
   "settings": {

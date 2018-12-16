@@ -44,3 +44,6 @@
 ### TODO
 - [ ] more descriptive names for redux actions
 - [ ] https://github.com/zalmoxisus/remotedev-server - move remotedev server to local environment
+- [ ] https://github.com/zeit/next.js/tree/canary/examples/with-sw-precache
+- [ ] https://github.com/zeit/next.js/tree/canary/examples/with-strict-csp-hash
+- [ ] https://github.com/zeit/next.js/tree/canary/examples/with-sitemap-and-robots-express-server
